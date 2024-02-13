@@ -1,5 +1,3 @@
-import React from "react";
-
 function ExpenseDetail(props) {
   const { amount, description, locationOfExpenditure } = props;
   return (
