@@ -1,4 +1,4 @@
-function ExpenseDetail(props) {
+const ExpenseDetail = (props) => {
   const { amount, description, locationOfExpenditure } = props;
   return (
     <div className="expense-item__description">
@@ -7,6 +7,6 @@ function ExpenseDetail(props) {
       <div className="expense-item__price">{amount}</div>
     </div>
   );
-}
+};
 
 export default ExpenseDetail;
