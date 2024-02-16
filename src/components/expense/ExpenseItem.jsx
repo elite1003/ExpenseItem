@@ -2,23 +2,37 @@ import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetail from "./ExpenseDetail";
 import Card from "../ui/Card";
+import { useState } from "react";
 
 const ExpenseItem = (props) => {
   const { expense } = props;
+  const [description, setDescription] = useState(expense.description);
+  const [amount, setAmount] = useState(expense.amount);
+  const editExpensePriceHandler = (event) => {
+    setAmount(100);
+  };
   const deleteExpenseItemHandler = (event) => {
-    event.preventDefault();
-    console.log("deleteExpenseItemHandler called", event);
+    console.log("deleteExpenseItemHandler called");
+  };
+  const editExpenseItemHandler = (event) => {
+    setDescription("updated");
   };
   return (
     <Card className="expense-item">
       <ExpenseDate date={expense.date} />
       <ExpenseDetail
-        description={expense.description}
+        description={description}
         locationOfExpenditure={expense.locationOfExpenditure}
-        amount={expense.amount}
+        amount={amount}
       />
       <button onClick={deleteExpenseItemHandler} type="button">
         Delete
+      </button>
+      <button onClick={editExpenseItemHandler} type="button">
+        Edit
+      </button>
+      <button onClick={editExpensePriceHandler} type="button">
+        Price
       </button>
     </Card>
   );
