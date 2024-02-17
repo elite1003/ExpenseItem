@@ -1,4 +1,4 @@
-import ExpenseItem from "./ExpenseItem";
+import ExpenseList from "./ExpensesList";
 import Card from "../ui/Card";
 import ExpensesFilter from "./ExpensesFilter";
 import "./Expenses.css";
@@ -19,9 +19,7 @@ const Expenses = (props) => {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {filteredExpense.map((expense) => {
-        return <ExpenseItem key={expense.id} expense={expense} />;
-      })}
+      <ExpenseList expenses={filteredExpense} />
     </Card>
   );
 };

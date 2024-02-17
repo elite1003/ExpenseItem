@@ -18,10 +18,11 @@ const ExpenseItem = (props) => {
   //   setTitle("updated");
   // };
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={expense.date} />
-      <ExpenseDetail title={title} amount={amount} />
-      {/* <button onClick={deleteExpenseItemHandler} type="button">
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={expense.date} />
+        <ExpenseDetail title={title} amount={amount} />
+        {/* <button onClick={deleteExpenseItemHandler} type="button">
         Delete
       </button>
       <button onClick={editExpenseItemHandler} type="button">
@@ -30,7 +31,8 @@ const ExpenseItem = (props) => {
       <button onClick={editExpensePriceHandler} type="button">
         Price
       </button> */}
-    </Card>
+      </Card>
+    </li>
   );
 };
 export default ExpenseItem;
