@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const ExpenseItem = (props) => {
   const { expense } = props;
-  const [description, setDescription] = useState(expense.description);
+  const [title, setTitle] = useState(expense.title);
   const [amount, setAmount] = useState(expense.amount);
   const editExpensePriceHandler = (event) => {
     setAmount(100);
@@ -15,16 +15,12 @@ const ExpenseItem = (props) => {
     console.log("deleteExpenseItemHandler called");
   };
   const editExpenseItemHandler = (event) => {
-    setDescription("updated");
+    setTitle("updated");
   };
   return (
     <Card className="expense-item">
       <ExpenseDate date={expense.date} />
-      <ExpenseDetail
-        description={description}
-        locationOfExpenditure={expense.locationOfExpenditure}
-        amount={amount}
-      />
+      <ExpenseDetail title={title} amount={amount} />
       <button onClick={deleteExpenseItemHandler} type="button">
         Delete
       </button>

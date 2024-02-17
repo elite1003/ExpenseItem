@@ -1,9 +1,8 @@
 const ExpenseDetail = (props) => {
-  const { amount, description, locationOfExpenditure } = props;
+  const { amount, title } = props;
   return (
     <div className="expense-item__description">
-      <h2>{description}</h2>
-      <h2>{locationOfExpenditure}</h2>
+      <h2>{title}</h2>
       <div className="expense-item__price">{amount}</div>
     </div>
   );

@@ -1,31 +1,37 @@
+import { useState } from "react";
 import Expenses from "./components/expense/Expenses";
 import NewExpense from "./components/newExpense/NewExpense";
 function App() {
   const expenses = [
     {
+      id: "e1",
       date: new Date(),
-      description: "Car Insurence",
+      title: "Car Insurence",
       amount: 3000,
-      locationOfExpenditure: "Lucknow",
     },
     {
+      id: "e2",
       date: new Date(),
-      description: "Rent",
+      title: "Rent",
       amount: 5000,
-      locationOfExpenditure: "Lucknow",
     },
     {
+      id: "e3",
       date: new Date(),
-      description: "Monthly expense",
+      title: "Monthly expense",
       amount: 10000,
-      locationOfExpenditure: "Lucknow",
     },
   ];
-
+  const [expensesData, setExpensesData] = useState(expenses);
+  const addExpense = (expense) => {
+    setExpensesData((prevState) => {
+      return [...prevState, expense];
+    });
+  };
   return (
     <>
-      <NewExpense />
-      <Expenses expenses={expenses} />
+      <NewExpense onAddExpense={addExpense} />
+      <Expenses expenses={expensesData} />
     </>
   );
 }
