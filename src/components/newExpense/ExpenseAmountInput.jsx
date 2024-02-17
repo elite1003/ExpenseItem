@@ -1,6 +1,7 @@
 import React from "react";
 
 const ExpenseAmountInput = (props) => {
+  const { amountChangeHandler, value } = props;
   return (
     <div className="new-expense__control">
       <label>Amount</label>
@@ -8,7 +9,8 @@ const ExpenseAmountInput = (props) => {
         type="number"
         min="0.01"
         step="0.01"
-        onChange={props.amountChangeHandler}
+        onChange={amountChangeHandler}
+        value={value}
       />
     </div>
   );
