@@ -1,5 +1,5 @@
 import Expenses from "./components/expense/Expenses";
-
+import ExpenseForm from "./components/expense/ExpenseForm";
 function App() {
   const expenses = [
     {
@@ -22,7 +22,12 @@ function App() {
     },
   ];
 
-  return <Expenses expenses={expenses} />;
+  return (
+    <>
+      <ExpenseForm />
+      <Expenses expenses={expenses} />
+    </>
+  );
 }
 
 export default App;
