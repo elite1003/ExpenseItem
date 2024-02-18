@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Expenses from "./components/expense/Expenses";
 import NewExpense from "./components/newExpense/NewExpense";
+import OpenForm from "./components/ui/OpenForm";
 const DUMMY_EXPENSES = [
   {
     id: "e1",
@@ -25,14 +26,27 @@ const DUMMY_EXPENSES = [
 
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const addExpense = (expense) => {
     setExpenses((preExpenses) => {
       return [expense, ...preExpenses];
     });
   };
+  const addNewExpesneClick = () => {
+    setIsFormOpen((prevState) => !prevState);
+  };
+  let renderForm = <OpenForm onAddNewExpesneClick={addNewExpesneClick} />;
+  if (isFormOpen) {
+    renderForm = (
+      <NewExpense
+        onAddExpenseOpen={addNewExpesneClick}
+        onAddExpense={addExpense}
+      />
+    );
+  }
   return (
     <>
-      <NewExpense onAddExpense={addExpense} />
+      {renderForm}
       <Expenses expenses={expenses} />
     </>
   );

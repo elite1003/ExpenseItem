@@ -3,6 +3,7 @@ import ExpenseTitleInput from "./ExpenseTitleInput";
 import ExpenseAmountInput from "./ExpenseAmountInput";
 import ExpenseDateInput from "./ExpenseDateInput";
 import ExpenseAddButton from "./ExpenseAddButton";
+import ExpenseCancelButton from "./ExpenseCancelButton";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
@@ -21,6 +22,7 @@ const ExpenseForm = (props) => {
     setTitle("");
     setAmount("");
     setDate("");
+    props.onAddExpenseOpen();
   };
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
@@ -44,6 +46,7 @@ const ExpenseForm = (props) => {
         />
         <ExpenseDateInput dateChangeHandler={dateChangeHandler} value={date} />
       </div>
+      <ExpenseCancelButton onAddExpenseOpen={props.onAddExpenseOpen} />
       <ExpenseAddButton />
     </form>
   );
